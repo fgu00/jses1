@@ -23,7 +23,7 @@ apiserver.get("/mionome",(request,response)=>{
     console.log("richiesta get sul mionome",request.query);
     response.send("cioa il tuo nome è: "+request.query.nome);
 })
-apiserver.get("/somma",(request,response)=>{
-    console.log("richiesta get sul mionome",request.query);
-    response.send("cioa il tuo nome è: "+request.query.nome);
-})
+apiserver.get("/somma",(request,response)=>{          
+    console.log("somma request",request.query);
+    response.send("risualtato "+(request.query.a-(-request.query.b)));
+})                                                                  
