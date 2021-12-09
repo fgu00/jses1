@@ -45,16 +45,18 @@ apiserver.get("/student",(request,response)=>{
     }
 
 });
+});
 apiserver.get("/newStudent",(request,response)=>{          
-    console.log("nuovo studente",request.query.id,request.query.nome,request.query.cognome);
-    fs.writeFile("studenti.js",(err,data)=>{
+    console.log("nuovo studente",request.query.id+"".request.query.nome+request.query.cognome);
+    sf.readFile("studenti.js",(err,data)=>{
         if(err){ console.log("error:"+err);
     }else{
+        var studenti=JSON.parse(data);
+        studenti[studenti.length+1]=request.query.data;
       console.log("surname: "+request.query.surname,"name: "+request.query.nome,"id: "+request.query.cognome>studenti.js);  
     }
 })  
     //prelevare l'oggetto con id 1
     //send
-
-})  
-//newstudent?id=3&name=                                                            
+//newstudent?id=3&name=
+});
