@@ -1,7 +1,6 @@
 var express=require("express");
 var apiserver=express(); 
 var sf=require("fs");
-const { Z_ASCII } = require("zlib");
 
 
 
@@ -46,7 +45,16 @@ apiserver.get("/student",(request,response)=>{
     }
 
 });
+apiserver.get("/newStudent",(request,response)=>{          
+    console.log("nuovo studente",request.query.id,request.query.nome,request.query.cognome);
+    fs.writeFile("studenti.js",(err,data)=>{
+        if(err){ console.log("error:"+err);
+    }else{
+      console.log("surname: "+request.query.surname,"name: "+request.query.nome,"id: "+request.query.cognome>studenti.js);  
+    }
+})  
     //prelevare l'oggetto con id 1
     //send
 
-})                                                              
+})  
+//newstudent?id=3&name=                                                            
