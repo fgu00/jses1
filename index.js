@@ -1,6 +1,7 @@
 var express=require("express");
 var apiserver=express(); 
 var sf=require("fs");
+const { ServerResponse } = require("http");
 
 
 
@@ -22,7 +23,7 @@ apiserver.get("/nome",(request,response)=>{
 });
 apiserver.get("/mionome",(request,response)=>{
     console.log("richiesta get sul mionome",request.query);
-    response.send("cioa il tuo nome è: "+request.query.nome);
+    response.json("cioa il tuo nome è: "+request.query.nome);
 })
 apiserver.get("/somma",(request,response)=>{          
     console.log("somma request",request.query);
