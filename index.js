@@ -1,3 +1,4 @@
+const { response } = require("express");
 var express=require("express");
 var apiserver=express(); 
 var sf=require("fs");
@@ -47,6 +48,11 @@ apiserver.get("/student",(request,response)=>{
     }
 
 });
+});
+apiserver.post("/mionome",(request,response)=>{
+    console.log("richiesta get sul mionome",request.body);
+    response.setHeader("content-type","application/json");
+    response.send(JSON.stringify({"cioa il tuo nome è: ":request.body.nome}));
 });
 apiserver.get("/newStudent",(request,response)=>{          
     console.log("nuovo studente",request.query.id+"".request.query.nome+request.query.cognome);
