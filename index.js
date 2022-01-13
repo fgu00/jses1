@@ -23,7 +23,8 @@ apiserver.get("/nome",(request,response)=>{
 });
 apiserver.get("/mionome",(request,response)=>{
     console.log("richiesta get sul mionome",request.query);
-    response.json("cioa il tuo nome è: "+request.query.nome);
+    response.setHeader("content-type","application/json");
+    response.send(JSON.stringify({"cioa il tuo nome è: ":request.query.nome}));
 })
 apiserver.get("/somma",(request,response)=>{          
     console.log("somma request",request.query);
